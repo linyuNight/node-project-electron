@@ -27,7 +27,8 @@ function createWindow () {
   ])
 
   Menu.setApplicationMenu(menu)
-  mainWindow.loadFile('index.html')
+  // mainWindow.loadFile('index.html')
+  mainWindow.loadFile('app/dist/index.html')
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
