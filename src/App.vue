@@ -1,5 +1,4 @@
 <template>
-  <div>888889</div>
   <router-view/>
 </template>
 
@@ -14,6 +13,10 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-
+<style>
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 </style>

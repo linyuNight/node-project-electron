@@ -1,3 +1,5 @@
+const { contextBridge, ipcRenderer } = require('electron')
+
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise(resolve => {
     if (condition.includes(document.readyState)) {
@@ -24,6 +26,12 @@ const safeDOM = {
     }
   },
 }
+
+contextBridge.exposeInMainWorld('electronAPI',  {
+  getIP: () => ipcRenderer.invoke('getIP'),
+  handlerExec: (params: any) => ipcRenderer.invoke('handlerExec', params),
+  setMousePosition: (params: any) => ipcRenderer.send('set-mouse-position', params)
+})
 
 /**
  * https://tobiasahlin.com/spinkit
